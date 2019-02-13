@@ -3,20 +3,26 @@ package com.company;
 import java.util.ArrayList;
 
 public class Players {
-
+PlayerArray array = new PlayerArray();
     String name;
     int age;
-    String gender;
+
     String attitude;
 
-    public Players(String name, int age, String gender, String attitude) {
+    public Players(String name, int age, String gender) {
         this.name = name;
         this.age = age;
-        this.gender = gender;
         this.attitude = attitude;
     }
 
-    ArrayList players = new ArrayList();
+    public void addPlayer(Players newPlayer) {
+        array.playersArray.add(newPlayer);
+    }
+
+
+
+
+
 
 }
 

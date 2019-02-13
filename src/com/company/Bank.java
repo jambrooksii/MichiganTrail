@@ -8,7 +8,7 @@ public class Bank {
     }
 
     public void subtractFund(double subtractedFunds){
-        subtractedFunds -= funds;
+        funds = funds - subtractedFunds;
     }
 
     public double getFunds() {
