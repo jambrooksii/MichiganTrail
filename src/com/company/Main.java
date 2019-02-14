@@ -6,16 +6,22 @@ public class Main {
 
     public static void main(String[] args) {
         Bank newBank = new Bank();
+        Jeep newJeep = new Jeep();
         PlayerArray newPlayerArray = new PlayerArray();
         Marketplace newMarket = new Marketplace();
+        newJeep.addScenario();
+        Trivia newTriva = new Trivia();
+
 
         Scanner stringScanner = new Scanner(System.in);
         Scanner intScanner = new Scanner(System.in);
 
-        System.out.println("Welcome to Michigan Trail! Who are you, my Brave Soul!?: " +
+        System.out.println();
+
+        System.out.println("Welcome to Michigan Trail! Who Are You, My Brave Soul?: " +
                 "\n\nPlease Enter Name: ");
         String playerOneName = stringScanner.nextLine();
-        System.out.println("Welcome to the Trail: " + playerOneName);
+        System.out.println("Welcome to the Trail: " + playerOneName + "!");
 
         System.out.println("\nHow old are you? ");
         int playerOneAge = intScanner.nextInt();
@@ -30,16 +36,16 @@ public class Main {
 
         newMarket.buyCar();
 
-        System.out.println("Your riding the the Michigan Trail with 2 of your bestfriends\n" +
+        System.out.println("You are riding the Michigan Trail with 2 of your best friends\n" +
                 "Enter Friend 1 Name:");
 
         String playerTwoName = stringScanner.nextLine();
-        System.out.println("Welcome to the Trail " + playerTwoName);
+        System.out.println("Welcome to the Trail " + playerTwoName + "!");
 
         System.out.println("\n How old are they? ");
         int playerTwoAge = intScanner.nextInt();
 
-        System.out.println("\n What is their temperament: ");
+        System.out.println("\n What is their temperament?: ");
         String playerTwoTemp = stringScanner.nextLine();
 
         Players playerTwo = new Players(playerTwoName, playerTwoAge, playerTwoTemp);
@@ -47,16 +53,16 @@ public class Main {
         System.out.println(newPlayerArray.playersArray.get(1).name);
 
 
-        System.out.println("Enter Friend 2 ");
+        System.out.println("\nEnter Friend 2 Name: ");
 
         String playerThreeName = stringScanner.nextLine();
-        System.out.println("Welcome to the Trail: " + playerThreeName);
+        System.out.println("Welcome to the Trail: " + playerThreeName + "!");
 
         System.out.println("\nHow old are they? ");
         int playerThreeAge = intScanner.nextInt();
 
 
-        System.out.println("\nWhat is their temperament: ");
+        System.out.println("\nWhat is their temperament?: ");
         String playerThreeTemp = stringScanner.nextLine();
 
         Players playerThree = new Players(playerThreeName, playerThreeAge, playerThreeTemp);
@@ -66,7 +72,34 @@ public class Main {
 
         newMarket.marketplacePrompt();
 
+        System.out.println("Time to hit the trail! Lets go!");
+        System.out.println("................");
+        System.out.println("Day 1: Moral is high. No problems on the horizon. Everyone gets a good night sleep.");
+        newMarket.whichFuel();
 
+        System.out.println("................");
+
+        System.out.println("Press Enter to Continue");
+        String trivia = stringScanner.nextLine();
+
+        System.out.println("Day 2: " + newJeep.jeepScenarios.get(1) + "\n");
+
+        newMarket.whichFuel();
+
+        System.out.println("Press Enter to Continue");
+        String trivia2 = stringScanner.nextLine();
+
+        System.out.println("Day 3: " + newJeep.jeepScenarios.get(2) + "\n");
+
+
+        newMarket.whichFuel();
+
+        System.out.println("Press Enter to Continue");
+        String trivia3 = stringScanner.nextLine();
+
+        System.out.println("Day 4 ");
+        newTriva.triviaGame();
+        System.out.println("");
 
 
 

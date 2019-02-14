@@ -3,24 +3,23 @@ package com.company;
 import java.util.Scanner;
 
 public class Marketplace {
-    int food;
-    String tireKit;
-    String blanket;
-    String jumperCables;
-    String flashLight;
-    String roadCones;
-    double fuel;
-boolean again = false;
+
+    boolean again = false;
+    Supplies suppliesArray = new Supplies();
+    Jeep newJeep = new Jeep();
+    Fuel newFuel = new Fuel();
     Scanner intScanner = new Scanner(System.in);
 
     Bank newBank = new Bank();
+    int carSelection;
 
-    public void buyCar(){
+    public void buyCar() {
+
         System.out.println("\nYou have $2500 to Start. Choose your vehicle:");
         System.out.println("[1] 1992 Toyota Camry - $1000\n" +
                 "[2] Subaru - $1500\n[3] Jeep - $2000");
 
-        int carSelection = intScanner.nextInt();
+        carSelection = intScanner.nextInt();
 
         if (carSelection == 1) {
             newBank.subtractFund(1000);
@@ -38,12 +37,10 @@ boolean again = false;
     }
 
     public void marketplacePrompt() {
-        Supplies suppliesArray = new Supplies();
-        Jeep newJeep = new Jeep();
-        Fuel newFuel = new Fuel();
+
 
         do {
-            System.out.println("Welcome to the MarketPlace. \nYou have " + newBank.getFunds() + "\n/nSelect the items you wish to purchase.");
+            System.out.println("\n\nWelcome to the MarketPlace. \nYou have " + newBank.getFunds() + "\n\nSelect the items you wish to purchase.");
             System.out.println("[1] Tire Kit - $300" +
                     "\n[2] Luxury Blanket - $150" +
                     "\n[3] Jumper Cables - $150" +
@@ -80,7 +77,10 @@ boolean again = false;
 
             } else if (choice == 7) {
                 newBank.subtractFund(50);
-                newFuel.addFuel(5);
+                newFuel.addFuelJeep(5);
+                newFuel.addFuelCamry(5);
+                newFuel.addFuelSubaru(5);
+
                 System.out.println(newJeep.jeepFuel);
 
 
@@ -91,10 +91,33 @@ boolean again = false;
                     "[1] Yes\n" +
                     "[2] No]\n");
             int numInput = intScanner.nextInt();
-            if(numInput == 1){
+            if (numInput == 1) {
                 again = true;
+            } else if (numInput == 2) {
+                again = false;
             }
-        }while (again);
+        } while (again == true);
+
+        listOfSupplies();
+    }
+
+    public void listOfSupplies() {
+        for (int i = 0; i < suppliesArray.addItem.size(); i++) {
+            System.out.println(suppliesArray.addItem.get(i));
+        }
+    }
+
+    public void whichFuel() {
+        if (carSelection == 1) {
+            newFuel.subtractFuelCamery();
+            System.out.println("You have " + newFuel.fuel4.camryFuel + " Units of fuel left");
+        } else if (carSelection == 2) {
+            newFuel.subtractFuelSubaru();
+            System.out.println("You have " + newFuel.fuel3.subaruFuel + " Units of Fuel left");
+        } else if (carSelection == 3) {
+            newFuel.subtractFuelJeep();
+            System.out.println("You have " + newFuel.fuel2.jeepFuel + " Units of Fuel left");
+        }
     }
 }
 

@@ -6,7 +6,6 @@ public class Supplies {
     ArrayList<String>addItem = new ArrayList<>();
     double fuel;
 
-    public void addfuel(double fueladded){
-        fuel += fueladded;
-    }
 }
+
+
